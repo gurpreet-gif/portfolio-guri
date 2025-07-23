@@ -1,41 +1,97 @@
+import { useState } from "react";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { Card, CardContent } from "@/components/ui/card";
-import { Star, Quote } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { useToast } from "@/hooks/use-toast";
+import { apiRequest } from "@/lib/queryClient";
+import { Star, Quote, Plus, Loader2 } from "lucide-react";
+
+interface Review {
+  id: number;
+  name: string;
+  role: string;
+  company: string;
+  rating: number;
+  review: string;
+  createdAt: string;
+}
+
+interface ReviewFormData {
+  name: string;
+  role: string;
+  company: string;
+  rating: number;
+  review: string;
+}
 
 const Reviews = () => {
-  const reviews = [
-    {
-      name: "[Your KocharTech Supervisor Name]",
-      role: "Data Analytics Manager",
-      company: "KocharTech Pvt. Ltd.",
-      rating: 5,
-      review: "Replace this with actual feedback from your KocharTech supervisor about your Power BI dashboard development work and data analysis skills during your 6-month internship.",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b332c48c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&h=150"
+  const { toast } = useToast();
+  const [showForm, setShowForm] = useState(false);
+  const [formData, setFormData] = useState<ReviewFormData>({
+    name: "",
+    role: "",
+    company: "",
+    rating: 5,
+    review: "",
+  });
+
+  // Fetch existing reviews
+  const { data: reviews = [], isLoading } = useQuery<Review[]>({
+    queryKey: ['/api/reviews'],
+  });
+
+  // Submit new review
+  const submitReview = useMutation({
+    mutationFn: async (data: ReviewFormData) => {
+      const response = await apiRequest("POST", "/api/reviews", data);
+      return response.json();
     },
-    {
-      name: "[Your Solitaire Infosys Contact]",
-      role: "Project Manager",
-      company: "Solitaire Infosys",
-      rating: 5,
-      review: "Add actual testimonial from your work experience at Solitaire Infosys, highlighting your technical contributions and professional growth.",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&h=150"
+    onSuccess: () => {
+      toast({
+        title: "Review Submitted!",
+        description: "Thank you for your testimonial. It will be displayed shortly.",
+      });
+      setFormData({ name: "", role: "", company: "", rating: 5, review: "" });
+      setShowForm(false);
+      // Invalidate and refetch reviews
+      window.location.reload();
     },
-    {
-      name: "[Your Professor Name]",
-      role: "Computer Science Professor",
-      company: "Amritsar Group of Colleges",
-      rating: 5,
-      review: "Request a testimonial from one of your CS professors about your academic performance, project work, and technical abilities during your B.Tech studies.",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&h=150"
+    onError: (error: any) => {
+      toast({
+        title: "Error",
+        description: error.message || "Failed to submit review. Please try again.",
+        variant: "destructive",
+      });
     },
-    {
-      name: "[Project Collaborator Name]",
-      role: "Team Lead/Colleague",
-      company: "Project Collaboration",
-      rating: 5,
-      review: "Include feedback from someone you've worked with on projects, emphasizing your collaboration skills, technical expertise, and problem-solving abilities.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&h=150"
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!formData.name || !formData.review) {
+      toast({
+        title: "Error",
+        description: "Please fill in at least your name and review.",
+        variant: "destructive",
+      });
+      return;
     }
-  ];
+
+    submitReview.mutate(formData);
+  };
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ 
+      ...prev, 
+      [name]: name === 'rating' ? parseInt(value) : value 
+    }));
+  };
 
   const renderStars = (rating: number) => {
     return [...Array(5)].map((_, index) => (
@@ -59,47 +115,171 @@ const Reviews = () => {
             What People Say
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Testimonials from colleagues, mentors, and supervisors who have worked with me
+            Read testimonials from colleagues and collaborators, or share your own experience working with me
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {reviews.map((review, index) => (
-            <Card
-              key={index}
-              className="bg-slate-50 hover:shadow-xl transition-shadow duration-300 relative overflow-hidden"
-            >
-              <CardContent className="p-8">
-                <div className="absolute top-4 right-4 text-portfolio-primary opacity-20">
-                  <Quote size={40} />
-                </div>
-                
-                <div className="flex items-center mb-4">
-                  <img
-                    src={review.image}
-                    alt={review.name}
-                    className="w-16 h-16 rounded-full object-cover mr-4"
-                  />
+        {/* Add Review Button */}
+        <div className="text-center mb-12">
+          <Button
+            onClick={() => setShowForm(!showForm)}
+            className="bg-portfolio-primary hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-300"
+          >
+            <Plus size={20} className="mr-2" />
+            {showForm ? "Cancel" : "Add Your Review"}
+          </Button>
+        </div>
+
+        {/* Review Form */}
+        {showForm && (
+          <Card className="max-w-2xl mx-auto mb-12 shadow-lg">
+            <CardContent className="p-8">
+              <h3 className="text-xl font-semibold text-portfolio-secondary mb-6">
+                Share Your Experience
+              </h3>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <h4 className="font-semibold text-portfolio-secondary">
-                      {review.name}
-                    </h4>
-                    <p className="text-sm text-slate-600">{review.role}</p>
-                    <p className="text-sm text-slate-500">{review.company}</p>
+                    <Label htmlFor="name">Your Name *</Label>
+                    <Input
+                      id="name"
+                      name="name"
+                      type="text"
+                      placeholder="Your full name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                      className="mt-2"
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="role">Your Role</Label>
+                    <Input
+                      id="role"
+                      name="role"
+                      type="text"
+                      placeholder="Your job title"
+                      value={formData.role}
+                      onChange={handleInputChange}
+                      className="mt-2"
+                    />
                   </div>
                 </div>
-
-                <div className="flex mb-4">
-                  {renderStars(review.rating)}
+                
+                <div>
+                  <Label htmlFor="company">Company/Organization</Label>
+                  <Input
+                    id="company"
+                    name="company"
+                    type="text"
+                    placeholder="Where you work"
+                    value={formData.company}
+                    onChange={handleInputChange}
+                    className="mt-2"
+                  />
                 </div>
 
-                <p className="text-slate-600 leading-relaxed italic">
-                  "{review.review}"
-                </p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+                <div>
+                  <Label htmlFor="rating">Rating</Label>
+                  <select
+                    id="rating"
+                    name="rating"
+                    value={formData.rating}
+                    onChange={handleInputChange}
+                    className="mt-2 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-portfolio-primary"
+                  >
+                    <option value={5}>5 Stars - Excellent</option>
+                    <option value={4}>4 Stars - Very Good</option>
+                    <option value={3}>3 Stars - Good</option>
+                    <option value={2}>2 Stars - Fair</option>
+                    <option value={1}>1 Star - Poor</option>
+                  </select>
+                </div>
+
+                <div>
+                  <Label htmlFor="review">Your Review *</Label>
+                  <Textarea
+                    id="review"
+                    name="review"
+                    placeholder="Share your experience working with Gurpreet..."
+                    value={formData.review}
+                    onChange={handleInputChange}
+                    required
+                    rows={4}
+                    className="mt-2"
+                  />
+                </div>
+
+                <Button
+                  type="submit"
+                  disabled={submitReview.isPending}
+                  className="w-full bg-portfolio-primary hover:bg-blue-600 text-white py-3 rounded-lg font-medium transition-colors duration-300"
+                >
+                  {submitReview.isPending ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Submitting...
+                    </>
+                  ) : (
+                    "Submit Review"
+                  )}
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Reviews Display */}
+        {isLoading ? (
+          <div className="text-center py-12">
+            <Loader2 className="h-8 w-8 animate-spin mx-auto mb-4" />
+            <p className="text-slate-600">Loading reviews...</p>
+          </div>
+        ) : reviews.length > 0 ? (
+          <div className="grid md:grid-cols-2 gap-8">
+            {reviews.map((review: Review) => (
+              <Card
+                key={review.id}
+                className="bg-slate-50 hover:shadow-xl transition-shadow duration-300 relative overflow-hidden"
+              >
+                <CardContent className="p-8">
+                  <div className="absolute top-4 right-4 text-portfolio-primary opacity-20">
+                    <Quote size={40} />
+                  </div>
+                  
+                  <div className="flex items-center mb-4">
+                    <div className="w-16 h-16 bg-portfolio-primary text-white rounded-full flex items-center justify-center mr-4 text-xl font-bold">
+                      {review.name.charAt(0).toUpperCase()}
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-portfolio-secondary">
+                        {review.name}
+                      </h4>
+                      {review.role && <p className="text-sm text-slate-600">{review.role}</p>}
+                      {review.company && <p className="text-sm text-slate-500">{review.company}</p>}
+                    </div>
+                  </div>
+
+                  <div className="flex mb-4">
+                    {renderStars(review.rating)}
+                  </div>
+
+                  <p className="text-slate-600 leading-relaxed italic">
+                    "{review.review}"
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-12">
+            <Quote size={48} className="mx-auto mb-4 text-slate-400" />
+            <h3 className="text-xl font-semibold text-slate-600 mb-2">No Reviews Yet</h3>
+            <p className="text-slate-500 max-w-md mx-auto">
+              Be the first to share your experience working with Gurpreet! Click "Add Your Review" above to get started.
+            </p>
+          </div>
+        )}
       </div>
     </section>
   );
