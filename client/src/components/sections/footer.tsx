@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { Github, Linkedin, Instagram, Facebook } from "lucide-react";
 
 const Footer = () => {
   const scrollToSection = (sectionId: string) => {
@@ -28,20 +28,28 @@ const Footer = () => {
                 <Github size={24} />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/its_ramgarhia.07?igsh=Mnk3dHNsM282cTkw"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-300 hover:text-white transition-colors duration-300"
+              >
+                <Instagram size={24} />
+              </a>
+              <a
+                href="https://www.facebook.com/share/14FH9XubmyH/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-300 hover:text-white transition-colors duration-300"
+              >
+                <Facebook size={24} />
+              </a>
+              <a
+                href="https://linkedin.com/in/gurpreet-singh"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-slate-300 hover:text-white transition-colors duration-300"
               >
                 <Linkedin size={24} />
-              </a>
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-slate-300 hover:text-white transition-colors duration-300"
-              >
-                <Twitter size={24} />
               </a>
             </div>
           </div>
@@ -87,7 +95,7 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Get In Touch</h4>
             <div className="space-y-2 text-slate-300">
-              <p>gurpreetramgarhia80@gmail.com</p>
+              <p>gurpreet vilkhu80@gmail.com</p>
               <p>+91-8569086202</p>
               <p>Amritsar, Punjab, India</p>
             </div>
