@@ -4,35 +4,35 @@ import { Star, Quote } from "lucide-react";
 const Reviews = () => {
   const reviews = [
     {
-      name: "Sarah Johnson",
+      name: "[Your KocharTech Supervisor Name]",
       role: "Data Analytics Manager",
       company: "KocharTech Pvt. Ltd.",
       rating: 5,
-      review: "Gurpreet demonstrated exceptional skills in Power BI dashboard development during his internship. His ability to transform complex data into actionable insights was impressive. He consistently delivered high-quality work and showed great attention to detail.",
+      review: "Replace this with actual feedback from your KocharTech supervisor about your Power BI dashboard development work and data analysis skills during your 6-month internship.",
       image: "https://images.unsplash.com/photo-1494790108755-2616b332c48c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&h=150"
     },
     {
-      name: "Michael Chen",
-      role: "Senior Developer",
+      name: "[Your Solitaire Infosys Contact]",
+      role: "Project Manager",
       company: "Solitaire Infosys",
       rating: 5,
-      review: "Working with Gurpreet was a pleasure. His frontend development skills, particularly with React.js and responsive design, are outstanding. He quickly grasped complex requirements and delivered clean, maintainable code.",
+      review: "Add actual testimonial from your work experience at Solitaire Infosys, highlighting your technical contributions and professional growth.",
       image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&h=150"
     },
     {
-      name: "Dr. Priya Sharma",
+      name: "[Your Professor Name]",
       role: "Computer Science Professor",
       company: "Amritsar Group of Colleges",
       rating: 5,
-      review: "Gurpreet is one of our most dedicated students. His passion for data analytics and web development is evident in his academic projects. He consistently goes above and beyond, showing real potential for a successful career in technology.",
+      review: "Request a testimonial from one of your CS professors about your academic performance, project work, and technical abilities during your B.Tech studies.",
       image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&h=150"
     },
     {
-      name: "Rajesh Kumar",
-      role: "Project Lead",
-      company: "Tech Solutions",
+      name: "[Project Collaborator Name]",
+      role: "Team Lead/Colleague",
+      company: "Project Collaboration",
       rating: 5,
-      review: "Gurpreet's analytical mindset and technical expertise make him a valuable team member. His work on data visualization projects using Python and SQL was exceptional. He has a bright future in the tech industry.",
+      review: "Include feedback from someone you've worked with on projects, emphasizing your collaboration skills, technical expertise, and problem-solving abilities.",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&h=150"
     }
   ];
