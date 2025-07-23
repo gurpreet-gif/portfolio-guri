@@ -25,23 +25,49 @@ const About = () => {
           </div>
 
           <div className="space-y-6">
-            <h3 className="text-2xl font-semibold text-portfolio-secondary mb-4">
-              Building the Future, One Line of Code at a Time
+            <h3 className="text-2xl font-semibold text-portfolio-secondary mb-6">
+              Professional Summary
             </h3>
 
-            <p className="text-slate-600 leading-relaxed">
-              Currently pursuing B.Tech in Computer Science Engineering (2021-2025) from 
-              Amritsar Group of Colleges. I have practical experience through internships 
-              with KocharTech, Deloitte Australia, British Airways, and Solitaire Infosys, 
-              focusing on data analysis, dashboard development, and web applications.
+            <p className="text-slate-600 leading-relaxed mb-4">
+              Motivated and detail-oriented Computer Science Engineering student (B.Tech, 2021–2025) 
+              with practical experience in data analysis, business intelligence, and full-stack web 
+              development. Skilled in technologies such as React.js, Next.js, Node.js, MongoDB, 
+              Power BI, Python, and SQL.
             </p>
 
-            <p className="text-slate-600 leading-relaxed">
-              My expertise spans across full-stack development, business intelligence, and 
-              data analytics. I've successfully built interactive dashboards, predictive models, 
-              and modern web applications using React.js, Python, Power BI, and various other 
-              technologies to deliver data-driven insights.
+            <p className="text-slate-600 leading-relaxed mb-6">
+              Successfully completed virtual internships with Deloitte Australia and British Airways 
+              via Forage, focusing on dashboard development, data-driven insights, and predictive 
+              modeling. A proactive team player with strong analytical and problem-solving abilities.
             </p>
+
+            <div className="mb-6">
+              <h4 className="text-lg font-semibold text-portfolio-secondary mb-3">Education</h4>
+              <div className="bg-slate-50 p-4 rounded-lg">
+                <div className="font-medium text-portfolio-secondary">Bachelor of Technology (B.Tech), Computer Science Engineering</div>
+                <div className="text-slate-600">Amritsar Group of Colleges, Punjab</div>
+                <div className="text-sm text-slate-500">Jan 2021 – Jan 2025</div>
+              </div>
+            </div>
+
+            <div className="mb-6">
+              <h4 className="text-lg font-semibold text-portfolio-secondary mb-3">Key Internships</h4>
+              <div className="space-y-3">
+                <div className="bg-slate-50 p-3 rounded-lg">
+                  <div className="font-medium text-portfolio-secondary">KocharTech Pvt. Ltd.</div>
+                  <div className="text-sm text-slate-600">6 Months - Power BI Dashboard Development</div>
+                </div>
+                <div className="bg-slate-50 p-3 rounded-lg">
+                  <div className="font-medium text-portfolio-secondary">Deloitte Australia (via Forage)</div>
+                  <div className="text-sm text-slate-600">Data Analytics & Tableau Visualization</div>
+                </div>
+                <div className="bg-slate-50 p-3 rounded-lg">
+                  <div className="font-medium text-portfolio-secondary">British Airways (via Forage)</div>
+                  <div className="text-sm text-slate-600">Customer Analytics & Predictive Modeling</div>
+                </div>
+              </div>
+            </div>
 
             {/* Stats */}
             <div className="grid grid-cols-2 gap-6 mt-8">
