@@ -6,6 +6,16 @@ import { Github, ExternalLink } from "lucide-react";
 const Projects = () => {
   const projects = [
     {
+      title: "Text Converter",
+      description:
+        "Advanced text analysis and manipulation tool with features like uppercase/lowercase conversion, word counting, character analysis, reading time estimation, and text formatting options. Built with React for seamless user experience.",
+      image:
+        "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
+      tags: ["React", "JavaScript", "Text Processing", "Web App"],
+      githubUrl: "https://github.com/gurpreet-gif/V-react-code-my-app",
+      liveUrl: "https://gurpreet-gif.github.io/V-react-code-my-app/",
+    },
+    {
       title: "E-Commerce Platform",
       description:
         "Full-stack e-commerce solution with React frontend, Node.js backend, and integrated payment processing. Features include user authentication, product management, and order tracking.",
