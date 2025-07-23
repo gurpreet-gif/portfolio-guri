@@ -44,7 +44,7 @@ const Footer = () => {
                 <Facebook size={24} />
               </a>
               <a
-                href="https://linkedin.com/in/gurpreet-singh"
+                href="https://www.linkedin.com/in/gurpreet-singh-6b8491313/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-slate-300 hover:text-white transition-colors duration-300"

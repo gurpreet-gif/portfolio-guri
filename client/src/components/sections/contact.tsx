@@ -133,7 +133,7 @@ const Contact = () => {
                   <Github size={20} />
                 </a>
                 <a
-                  href="https://linkedin.com/in/gurpreet-singh"
+                  href="https://www.linkedin.com/in/gurpreet-singh-6b8491313/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors duration-300"
