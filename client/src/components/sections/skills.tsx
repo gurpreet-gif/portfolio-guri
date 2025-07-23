@@ -7,19 +7,19 @@ const Skills = () => {
       title: "Frontend",
       icon: "⚛️",
       color: "blue",
-      skills: ["React", "Vue.js", "JavaScript", "TypeScript", "Tailwind CSS"],
+      skills: ["React.js", "Next.js", "HTML", "CSS", "JavaScript", "Bootstrap"],
     },
     {
       title: "Backend",
       icon: "🚀",
       color: "green",
-      skills: ["Node.js", "Express.js", "Python", "MongoDB", "PostgreSQL"],
+      skills: ["Node.js", "Express.js", "MongoDB", "PHP", "Python", "SQL"],
     },
     {
-      title: "Data Analyst",
+      title: "Data & BI Tools",
       icon: "📊",
       color: "orange",
-      skills: ["Python", "SQL", "Excel", "Power BI", "Data Visualization"],
+      skills: ["Power BI", "Excel", "Tableau", "Pandas", "Matplotlib"],
     },
   ];
 

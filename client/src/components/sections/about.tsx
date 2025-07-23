@@ -30,33 +30,32 @@ const About = () => {
             </h3>
 
             <p className="text-slate-600 leading-relaxed">
-              With over 3 years of experience in full-stack development, I
-              specialize in creating scalable web applications using modern
-              technologies. My journey began with a fascination for
-              problem-solving and has evolved into a passion for building
-              solutions that make a real difference.
+              Currently pursuing B.Tech in Computer Science Engineering (2021-2025) from 
+              Amritsar Group of Colleges. I have practical experience through internships 
+              with KocharTech, Deloitte Australia, British Airways, and Solitaire Infosys, 
+              focusing on data analysis, dashboard development, and web applications.
             </p>
 
             <p className="text-slate-600 leading-relaxed">
-              I believe in writing clean, maintainable code and staying
-              up-to-date with the latest industry trends. When I'm not coding,
-              you'll find me contributing to open-source projects, learning new
-              technologies, or sharing knowledge with the developer community.
+              My expertise spans across full-stack development, business intelligence, and 
+              data analytics. I've successfully built interactive dashboards, predictive models, 
+              and modern web applications using React.js, Python, Power BI, and various other 
+              technologies to deliver data-driven insights.
             </p>
 
             {/* Stats */}
             <div className="grid grid-cols-2 gap-6 mt-8">
               <div className="text-center p-4 bg-slate-50 rounded-lg">
                 <div className="text-3xl font-bold text-portfolio-primary">
-                  25+
+                  5+
                 </div>
                 <div className="text-slate-600">Projects Completed</div>
               </div>
               <div className="text-center p-4 bg-slate-50 rounded-lg">
                 <div className="text-3xl font-bold text-portfolio-primary">
-                  3+
+                  4
                 </div>
-                <div className="text-slate-600">Years Experience</div>
+                <div className="text-slate-600">Internships</div>
               </div>
             </div>
 
