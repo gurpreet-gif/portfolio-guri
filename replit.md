@@ -25,10 +25,10 @@ Preferred communication style: Simple, everyday language.
 - **Development**: Hot reloading with Vite integration in development mode
 
 ### Data Storage Strategy
-- **Development**: In-memory storage using Map data structures
-- **Production Ready**: Configured for PostgreSQL with Drizzle ORM
+- **Database**: PostgreSQL with Drizzle ORM (Active)
 - **Database Driver**: Neon Database serverless for cloud deployment
 - **Schema Management**: Drizzle Kit for migrations and schema management
+- **Storage Implementation**: DatabaseStorage class replacing MemStorage for persistent data
 
 ## Key Components
 
@@ -65,9 +65,9 @@ Preferred communication style: Simple, everyday language.
 
 ### Storage Layer
 - **IStorage Interface**: Defines storage contract
-- **MemStorage Implementation**: In-memory storage for development
-- **Database Schema**: Users and contact messages tables
-- **Future Database Integration**: Ready for PostgreSQL deployment
+- **DatabaseStorage Implementation**: PostgreSQL storage with Drizzle ORM
+- **Database Schema**: Users and contact messages tables (deployed)
+- **Database Integration**: Active PostgreSQL with persistent data storage
 
 ## External Dependencies
 
