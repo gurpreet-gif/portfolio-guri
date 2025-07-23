@@ -16,32 +16,32 @@ const Projects = () => {
       liveUrl: "https://gurpreet-gif.github.io/V-react-code-my-app/",
     },
     {
+      title: "Sales Analytics Dashboard",
+      description:
+        "Interactive Power BI dashboard visualizing key sales metrics with trend analysis and actionable business insights. Built comprehensive data models for real-time analytics and performance tracking.",
+      image:
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
+      tags: ["Power BI", "SQL", "Python", "Excel"],
+      githubUrl: "https://github.com/gurpreet-gif",
+      liveUrl: "#",
+    },
+    {
+      title: "News Web Application",
+      description:
+        "Real-time news web application with third-party API integration for live news feeds. Features responsive design, category filtering, and dynamic content loading using React.js and Bootstrap.",
+      image:
+        "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
+      tags: ["React.js", "Bootstrap", "API Integration", "JavaScript"],
+      githubUrl: "https://github.com/gurpreet-gif",
+      liveUrl: "#",
+    },
+    {
       title: "E-Commerce Platform",
       description:
-        "Full-stack e-commerce solution with React frontend, Node.js backend, and integrated payment processing. Features include user authentication, product management, and order tracking.",
+        "Full-stack e-commerce application with secure user authentication, dynamic product listings, shopping cart functionality, and MongoDB database integration. Built with React.js frontend and Node.js backend.",
       image:
         "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
-      tags: ["React", "Node.js", "MongoDB", "Stripe"],
-      githubUrl: "https://github.com/gurpreet-gif",
-      liveUrl: "#",
-    },
-    {
-      title: "Task Management App",
-      description:
-        "Collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features. Built with Vue.js and Firebase.",
-      image:
-        "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
-      tags: ["Vue.js", "Firebase", "Vuex", "Socket.io"],
-      githubUrl: "https://github.com/gurpreet-gif",
-      liveUrl: "#",
-    },
-    {
-      title: "Weather Dashboard",
-      description:
-        "Interactive weather dashboard with location-based forecasts, historical data visualization, and severe weather alerts. Integrates multiple weather APIs for accurate predictions.",
-      image:
-        "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
-      tags: ["React", "Chart.js", "OpenWeather API", "PWA"],
+      tags: ["React.js", "Node.js", "MongoDB", "Authentication"],
       githubUrl: "https://github.com/gurpreet-gif",
       liveUrl: "#",
     },

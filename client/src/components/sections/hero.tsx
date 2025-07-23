@@ -28,9 +28,9 @@ const Hero = () => {
             </h1>
 
             <p className="text-lg md:text-xl text-slate-600 mb-8 max-w-2xl">
-              Passionate about creating innovative web solutions that combine
-              beautiful design with powerful functionality. Specialized in
-              modern JavaScript frameworks and cloud technologies.
+              Motivated Computer Science Engineering student with practical experience in data analysis, 
+              business intelligence, and full-stack web development. Skilled in React.js, Node.js, 
+              Python, Power BI, and modern web technologies.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -78,7 +78,7 @@ const Hero = () => {
                 <Twitter size={24} />
               </a>
               <a
-                href="mailto:gurpreet.dev@example.com"
+                href="mailto:gurpreetramgarhia80@gmail.com"
                 className="text-slate-600 hover:text-portfolio-primary text-2xl transition-colors duration-300"
               >
                 <Mail size={24} />
