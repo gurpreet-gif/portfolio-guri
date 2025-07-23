@@ -1,4 +1,4 @@
-import { users, contactMessages, type User, type InsertUser, type ContactMessage, type InsertContactMessage } from "@shared/schema";
+import { users, contactMessages, reviews, type User, type InsertUser, type ContactMessage, type InsertContactMessage, type Review, type InsertReview } from "@shared/schema";
 import { db } from "./db";
 import { eq, desc } from "drizzle-orm";
 
@@ -9,6 +9,8 @@ export interface IStorage {
   createContactMessage(message: InsertContactMessage): Promise<ContactMessage>;
   getContactMessages(): Promise<ContactMessage[]>;
   markMessageAsRead(id: number): Promise<void>;
+  createReview(review: InsertReview): Promise<Review>;
+  getAllReviews(): Promise<Review[]>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -50,6 +52,21 @@ export class DatabaseStorage implements IStorage {
       .update(contactMessages)
       .set({ isRead: true })
       .where(eq(contactMessages.id, id));
+  }
+
+  async createReview(insertReview: InsertReview): Promise<Review> {
+    const [review] = await db
+      .insert(reviews)
+      .values(insertReview)
+      .returning();
+    return review;
+  }
+
+  async getAllReviews(): Promise<Review[]> {
+    return await db
+      .select()
+      .from(reviews)
+      .orderBy(desc(reviews.createdAt));
   }
 }
 

@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertContactMessageSchema } from "@shared/schema";
+import { insertContactMessageSchema, insertReviewSchema } from "@shared/schema";
 import { z } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -63,6 +63,46 @@ export async function registerRoutes(app: Express): Promise<Server> {
         success: false, 
         message: "Failed to update message status."
       });
+    }
+  });
+
+  // Reviews endpoints
+  app.get("/api/reviews", async (req, res) => {
+    try {
+      const reviews = await storage.getAllReviews();
+      res.json(reviews);
+    } catch (error) {
+      console.error("Error fetching reviews:", error);
+      res.status(500).json({ 
+        success: false, 
+        message: "Failed to fetch reviews." 
+      });
+    }
+  });
+
+  app.post("/api/reviews", async (req, res) => {
+    try {
+      const validatedData = insertReviewSchema.parse(req.body);
+      const review = await storage.createReview(validatedData);
+      res.json({ 
+        success: true, 
+        message: "Review submitted successfully!",
+        id: review.id
+      });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        res.status(400).json({ 
+          success: false, 
+          message: "Please fill in all required fields correctly.",
+          errors: error.errors
+        });
+      } else {
+        console.error("Error creating review:", error);
+        res.status(500).json({ 
+          success: false, 
+          message: "Failed to submit review. Please try again later." 
+        });
+      }
     }
   });
 
