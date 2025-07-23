@@ -95,11 +95,17 @@ const Hero = () => {
               />
 
               {/* Floating Elements */}
-              <div className="absolute -top-4 -right-4 bg-portfolio-accent text-white p-3 rounded-full shadow-lg animate-bounce">
+              <div className="absolute -top-4 -right-4 bg-portfolio-primary text-white p-3 rounded-full shadow-lg animate-bounce">
                 <Code size={24} />
               </div>
-              <div className="absolute -bottom-4 -left-4 bg-emerald-500 text-white p-3 rounded-full shadow-lg animate-pulse">
+              <div className="absolute -bottom-4 -left-4 bg-orange-500 text-white p-3 rounded-full shadow-lg animate-pulse">
                 <Laptop size={24} />
+              </div>
+              <div className="absolute top-1/2 -left-6 bg-green-500 text-white p-2 rounded-full shadow-lg animate-ping">
+                <Github size={20} />
+              </div>
+              <div className="absolute top-12 -left-2 bg-blue-600 text-white p-2 rounded-full shadow-lg animate-pulse">
+                <Mail size={18} />
               </div>
             </div>
           </div>
