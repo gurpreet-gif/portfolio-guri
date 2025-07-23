@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Twitter, Mail, Code, Laptop } from "lucide-react";
+import { Github, Linkedin, Instagram, Facebook, Mail, Code, Laptop } from "lucide-react";
 import profileImage from "@assets/converted_image_1753260066748.png";
 
 const Hero = () => {
@@ -62,7 +62,7 @@ const Hero = () => {
                 <Github size={24} />
               </a>
               <a
-                href="#"
+                href="https://linkedin.com/in/gurpreet-singh"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-slate-600 hover:text-portfolio-primary text-2xl transition-colors duration-300"
@@ -70,15 +70,23 @@ const Hero = () => {
                 <Linkedin size={24} />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/its_ramgarhia.07?igsh=Mnk3dHNsM282cTkw"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-slate-600 hover:text-portfolio-primary text-2xl transition-colors duration-300"
               >
-                <Twitter size={24} />
+                <Instagram size={24} />
               </a>
               <a
-                href="mailto:gurpreetramgarhia80@gmail.com"
+                href="https://www.facebook.com/share/14FH9XubmyH/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-600 hover:text-portfolio-primary text-2xl transition-colors duration-300"
+              >
+                <Facebook size={24} />
+              </a>
+              <a
+                href="mailto:gurpreet vilkhu80@gmail.com"
                 className="text-slate-600 hover:text-portfolio-primary text-2xl transition-colors duration-300"
               >
                 <Mail size={24} />
