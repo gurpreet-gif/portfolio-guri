@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Loader2 } from "lucide-react";
+import { Mail, Phone, MapPin, Github, Linkedin, Instagram, Facebook, Loader2 } from "lucide-react";
 
 interface ContactFormData {
   name: string;
@@ -95,7 +95,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-medium text-portfolio-secondary">Email</h4>
-                  <p className="text-slate-600">gurpreetramgarhia80@gmail.com</p>
+                  <p className="text-slate-600">gurpreet vilkhu80@gmail.com</p>
                 </div>
               </div>
 
@@ -133,7 +133,7 @@ const Contact = () => {
                   <Github size={20} />
                 </a>
                 <a
-                  href="#"
+                  href="https://linkedin.com/in/gurpreet-singh"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors duration-300"
@@ -141,12 +141,20 @@ const Contact = () => {
                   <Linkedin size={20} />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.instagram.com/its_ramgarhia.07?igsh=Mnk3dHNsM282cTkw"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-blue-400 text-white rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors duration-300"
+                  className="w-10 h-10 bg-pink-500 text-white rounded-full flex items-center justify-center hover:bg-pink-600 transition-colors duration-300"
                 >
-                  <Twitter size={20} />
+                  <Instagram size={20} />
+                </a>
+                <a
+                  href="https://www.facebook.com/share/14FH9XubmyH/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors duration-300"
+                >
+                  <Facebook size={20} />
                 </a>
               </div>
             </div>
