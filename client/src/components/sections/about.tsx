@@ -90,7 +90,7 @@ const About = () => {
                 asChild
                 className="bg-portfolio-primary hover:bg-blue-600 text-white"
               >
-                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                <a href="/Gurpreet_Professional_Resume.pdf" target="_blank" rel="noopener noreferrer">
                   <Download className="mr-2 h-4 w-4" />
                   Download Resume
                 </a>

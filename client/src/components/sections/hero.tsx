@@ -23,7 +23,7 @@ const Hero = () => {
               <span className="text-portfolio-primary">Gurpreet</span>
               <br />
               <span className="text-slate-600 text-3xl md:text-4xl lg:text-5xl font-medium">
-                Full Stack Developer
+                Web Developer
               </span>
             </h1>
 
