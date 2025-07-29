@@ -3,21 +3,16 @@
   "builds": [
     {
       "src": "dist/index.js",
-      "use": "@vercel/node@3.0.7"
-    },
-    {
-      "src": "dist/public/**/*",
-      "use": "@vercel/static"
+      "use": "@vercel/node@3.0.7",
+      "config": {
+        "runtime": "nodejs18.x"
+      }
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
       "dest": "/dist/index.js"
-    },
-    {
-      "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|ico|pdf))",
-      "dest": "/dist/public/$1"
     },
     {
       "src": "/(.*)",
