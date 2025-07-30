@@ -5,6 +5,11 @@ import { insertContactMessageSchema, insertReviewSchema } from "@shared/schema";
 import { z } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Handle favicon requests to prevent 500 errors
+  app.get('/favicon.ico', (req, res) => {
+    res.status(204).end(); // No Content
+  });
+
   // Contact form submission endpoint
   app.post("/api/contact", async (req, res) => {
     try {

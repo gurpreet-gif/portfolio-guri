@@ -4,9 +4,26 @@
     {
       "src": "dist/index.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "dist/public/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
+    
+    {
+      "src": "/manifest.json",
+      "dest": "/dist/public/manifest.json"
+    },
+    {
+      "src": "/(.*\\.(png|ico|svg|pdf))",
+      "dest": "/dist/public/$1"
+    },
+    {
+      "src": "/assets/(.*)",
+      "dest": "/dist/public/assets/$1"
+    },
     {
       "src": "/api/(.*)",
       "dest": "/dist/index.js"
