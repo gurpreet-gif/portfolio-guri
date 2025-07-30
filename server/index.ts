@@ -1,4 +1,5 @@
 import express, { type Request, Response, NextFunction } from "express";
+import path from "path";
 import { registerRoutes } from "./routes";
 
 const app = express();
@@ -6,7 +7,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Serve static files from public directory
-app.use(express.static('public'));
+
 
 app.use((req, res, next) => {
   const start = Date.now();
@@ -52,14 +53,9 @@ app.use((req, res, next) => {
   // importantly only setup vite in development and after
   // setting up all the other routes so the catch-all route
   // doesn't interfere with the other routes
-const { log } = await import("./vite.js");
-
-  if (process.env.NODE_ENV === "development") {
-    const { setupVite } = await import("./vite.js");
-    await setupVite(app, server);
-  } else {
-    const { serveStatic } = await import("./vite.js");
-    serveStatic(app);
+  // In production, serve static files from the 'dist/public' directory
+  if (process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname, 'public')));
   }
 
   // ALWAYS serve the app on the port specified in the environment variable PORT

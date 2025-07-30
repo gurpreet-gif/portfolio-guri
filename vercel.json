@@ -11,7 +11,10 @@
     }
   ],
   "routes": [
-    
+    {
+      "src": "/favicon.ico",
+      "dest": "/dist/public/favicon.ico"
+    },
     {
       "src": "/manifest.json",
       "dest": "/dist/public/manifest.json"
